@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CanonBehaviour : MonoBehaviour
 {
 
-    public static float _canonPower = 0;
+    public static float _canonPower = 4;
     [SerializeField] private Slider _canonPowerSlider;
 
 
+    private void Awake()
+    {
+        _canonPower = 4;
+    }
 
     private void Update()
     {
@@ -36,13 +38,13 @@ public class CanonBehaviour : MonoBehaviour
 
     private void IncreaseCanonPower()
     {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && _canonPower < 100)
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && _canonPower < 15)
             {
-                _canonPower += 5;
+                _canonPower += 0.5f;
             }
-            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && _canonPower > 0)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && _canonPower > 4)
             {
-                _canonPower -= 5;
+                _canonPower -= 0.5f;
             }     
     }
 
